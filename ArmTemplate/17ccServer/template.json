@@ -25,6 +25,10 @@
         "publicIPAddresses_nested17ccvmip_name": {
             "defaultValue": "17cc-ip2",
             "type": "String"
+        },
+        "virtualMachines_DemoVm_password": {
+            "defaultValue": "********",
+            "type": "string"
         }
     },
     "variables": {},
@@ -168,11 +172,11 @@
                     },
                     "osDisk": {
                         "osType": "Linux",
-                        "name": "[concat(parameters('virtualMachines_DemoVm_name'), '_OsDisk_1_dc951f71d043409f9067588e6756065f')]",
+                        "name": "[concat(parameters('virtualMachines_DemoVm_name'), '_OsDisk_1')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
-                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_DemoVm_name'), '_OsDisk_1_dc951f71d043409f9067588e6756065f'))]"
+                            "storageAccountType": "StandardSSD_LRS"
                         }
                     },
                     "dataDisks": []
@@ -180,13 +184,13 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachines_DemoVm_name')]",
                     "adminUsername": "programer",
+                    "adminPassword": "[parameters('virtualMachines_DemoVm_password')]",
                     "linuxConfiguration": {
                         "disablePasswordAuthentication": false,
                         "provisionVMAgent": true
                     },
                     "secrets": [],
-                    "allowExtensionOperations": true,
-                    "requireGuestProvisionSignal": true
+                    "allowExtensionOperations": true
                 },
                 "networkProfile": {
                     "networkInterfaces": [
@@ -194,11 +198,6 @@
                             "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_demovm552_name'))]"
                         }
                     ]
-                },
-                "diagnosticsProfile": {
-                    "bootDiagnostics": {
-                        "enabled": true
-                    }
                 }
             }
         },
