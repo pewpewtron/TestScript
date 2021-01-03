@@ -2,25 +2,29 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "virtualMachines_LoadServer_name": {
+        "virtualMachines_name": {
             "defaultValue": "load-server",
             "type": "String"
         },
-        "networkInterfaces_loadserver19_name": {
+        "networkInterfaces_name": {
             "defaultValue": "loadserver-nic",
             "type": "String"
         },
-        "publicIPAddresses_LoadServer_ip_name": {
+        "publicIPAddresses_VM_ip_name": {
             "defaultValue": "loadserver-ip",
             "type": "String"
         },
-        "virtualNetworks_LoadServer_vnet_name": {
+        "virtualNetworks_vnet_name": {
             "defaultValue": "loadserver-vnet",
             "type": "String"
         },
-        "networkSecurityGroups_LoadServer_nsg_name": {
+        "networkSecurityGroups_name": {
             "defaultValue": "loadserver-nsg",
             "type": "String"
+        },
+        "virtualMachines_password": {
+            "defaultValue": "Your_password_here",
+            "type": "string"
         }
     },
     "variables": {},
@@ -28,7 +32,7 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2020-05-01",
-            "name": "[parameters('networkSecurityGroups_LoadServer_nsg_name')]",
+            "name": "[parameters('networkSecurityGroups_name')]",
             "location": "australiacentral",
             "properties": {
                 "securityRules": [
@@ -55,7 +59,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2020-05-01",
-            "name": "[parameters('publicIPAddresses_LoadServer_ip_name')]",
+            "name": "[parameters('publicIPAddresses_VM_ip_name')]",
             "location": "australiacentral",
             "sku": {
                 "name": "Basic"
@@ -70,7 +74,7 @@
         {
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2020-05-01",
-            "name": "[parameters('virtualNetworks_LoadServer_vnet_name')]",
+            "name": "[parameters('virtualNetworks_vnet_name')]",
             "location": "australiacentral",
             "properties": {
                 "addressSpace": {
@@ -97,10 +101,10 @@
         {
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2019-07-01",
-            "name": "[parameters('virtualMachines_LoadServer_name')]",
+            "name": "[parameters('virtualMachines_name')]",
             "location": "australiacentral",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_loadserver19_name'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_name'))]"
             ],
             "properties": {
                 "hardwareProfile": {
@@ -115,18 +119,19 @@
                     },
                     "osDisk": {
                         "osType": "Linux",
-                        "name": "[concat(parameters('virtualMachines_LoadServer_name'), '_OsDisk_1_ce45d66d3b8b4f75afa0b0faf3b6130a')]",
+                        "name": "[concat(parameters('virtualMachines_name'), '_OsDisk_1_ce45d66d3b8b4f75afa0b0faf3b6130a')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
-                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_LoadServer_name'), '_OsDisk_1_ce45d66d3b8b4f75afa0b0faf3b6130a'))]"
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_name'), '_OsDisk_1_ce45d66d3b8b4f75afa0b0faf3b6130a'))]"
                         }
                     },
                     "dataDisks": []
                 },
                 "osProfile": {
-                    "computerName": "[parameters('virtualMachines_LoadServer_name')]",
+                    "computerName": "[parameters('virtualMachines_name')]",
                     "adminUsername": "programer",
+                    "adminPassword": "[parameters('virtualMachines_password')]",
                     "linuxConfiguration": {
                         "disablePasswordAuthentication": false,
                         "provisionVMAgent": true
@@ -138,7 +143,7 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_loadserver19_name'))]"
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_name'))]"
                         }
                     ]
                 },
@@ -152,9 +157,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-05-01",
-            "name": "[concat(parameters('networkSecurityGroups_LoadServer_nsg_name'), '/SSH')]",
+            "name": "[concat(parameters('networkSecurityGroups_name'), '/SSH')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_LoadServer_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_name'))]"
             ],
             "properties": {
                 "protocol": "TCP",
@@ -174,9 +179,9 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2020-05-01",
-            "name": "[concat(parameters('virtualNetworks_LoadServer_vnet_name'), '/default')]",
+            "name": "[concat(parameters('virtualNetworks_vnet_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_LoadServer_vnet_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_vnet_name'))]"
             ],
             "properties": {
                 "addressPrefix": "10.0.2.0/24",
@@ -188,12 +193,12 @@
         {
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2020-05-01",
-            "name": "[parameters('networkInterfaces_loadserver19_name')]",
+            "name": "[parameters('networkInterfaces_name')]",
             "location": "australiacentral",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_LoadServer_ip_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_LoadServer_vnet_name'), 'default')]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_LoadServer_nsg_name'))]"
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_VM_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_vnet_name'), 'default')]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_name'))]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -203,10 +208,10 @@
                             "privateIPAddress": "10.0.2.4",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_LoadServer_ip_name'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_VM_ip_name'))]"
                             },
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_LoadServer_vnet_name'), 'default')]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_vnet_name'), 'default')]"
                             },
                             "primary": true,
                             "privateIPAddressVersion": "IPv4"
@@ -219,7 +224,7 @@
                 "enableAcceleratedNetworking": false,
                 "enableIPForwarding": false,
                 "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_LoadServer_nsg_name'))]"
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_name'))]"
                 }
             }
         }

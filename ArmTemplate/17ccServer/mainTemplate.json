@@ -14,15 +14,15 @@
             "defaultValue": "17cc-nic",
             "type": "String"
         },
-        "publicIPAddresses_VM_ip_name": {
+        "publicIPAddresses_host_name": {
             "defaultValue": "17cc-ip",
             "type": "String"
         },
-        "networkSecurityGroups_VM_nsg_name": {
+        "networkSecurityGroups_name": {
             "defaultValue": "17cc-nsg",
             "type": "String"
         },
-        "publicIPAddresses_nested_ip_name": {
+        "publicIPAddresses_nested_name": {
             "defaultValue": "17cc-ip2",
             "type": "String"
         },
@@ -36,7 +36,7 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2020-05-01",
-            "name": "[parameters('networkSecurityGroups_VM_nsg_name')]",
+            "name": "[parameters('networkSecurityGroups_name')]",
             "location": "australiaeast",
             "properties": {
                 "securityRules": [
@@ -97,7 +97,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2020-05-01",
-            "name": "[parameters('publicIPAddresses_VM_ip_name')]",
+            "name": "[parameters('publicIPAddresses_host_name')]",
             "location": "australiaeast",
             "sku": {
                 "name": "Basic"
@@ -112,7 +112,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2020-05-01",
-            "name": "[parameters('publicIPAddresses_nested_ip_name')]",
+            "name": "[parameters('publicIPAddresses_nested_name')]",
             "location": "australiaeast",
             "sku": {
                 "name": "Basic"
@@ -216,9 +216,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-05-01",
-            "name": "[concat(parameters('networkSecurityGroups_VM_nsg_name'), '/HTTP')]",
+            "name": "[concat(parameters('networkSecurityGroups_name'), '/HTTP')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_name'))]"
             ],
             "properties": {
                 "protocol": "TCP",
@@ -238,9 +238,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-05-01",
-            "name": "[concat(parameters('networkSecurityGroups_VM_nsg_name'), '/HTTPS')]",
+            "name": "[concat(parameters('networkSecurityGroups_name'), '/HTTPS')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_name'))]"
             ],
             "properties": {
                 "protocol": "TCP",
@@ -260,9 +260,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-05-01",
-            "name": "[concat(parameters('networkSecurityGroups_VM_nsg_name'), '/SSH')]",
+            "name": "[concat(parameters('networkSecurityGroups_name'), '/SSH')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_name'))]"
             ],
             "properties": {
                 "protocol": "TCP",
@@ -299,10 +299,10 @@
             "name": "[parameters('networkInterfaces_name')]",
             "location": "australiaeast",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_VM_ip_name'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_host_name'))]",
                 "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_vnet_name'), 'default')]",
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_nested_ip_name'))]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_nested_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_name'))]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -312,7 +312,7 @@
                             "privateIPAddress": "10.0.1.4",
                             "privateIPAllocationMethod": "Static",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_VM_ip_name'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_host_name'))]"
                             },
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_vnet_name'), 'default')]"
@@ -327,7 +327,7 @@
                             "privateIPAddress": "10.0.1.5",
                             "privateIPAllocationMethod": "Static",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_nested_ip_name'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_nested_name'))]"
                             },
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_vnet_name'), 'default')]"
@@ -343,7 +343,7 @@
                 "enableAcceleratedNetworking": false,
                 "enableIPForwarding": false,
                 "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_VM_nsg_name'))]"
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_name'))]"
                 }
             }
         }
