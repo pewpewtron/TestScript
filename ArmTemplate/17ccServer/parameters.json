@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_17ccVM_name": {
+            "value": null
+        },
+        "virtualMachines_17ccDocker_name": {
+            "value": null
+        },
+        "networkInterfaces_17ccvm585_name": {
+            "value": null
+        },
+        "publicIPAddresses_17ccVM_ip_name": {
+            "value": null
+        },
+        "publicIPAddresses_17ccVM_Guest_name": {
+            "value": null
+        },
+        "networkInterfaces_17ccdocker611_name": {
+            "value": null
+        },
+        "publicIPAddresses_17ccDocker_ip_name": {
+            "value": null
+        },
+        "networkSecurityGroups_17ccVM_nsg_name": {
+            "value": null
+        },
+        "virtualNetworks_17ccServers_vnet_name": {
+            "value": null
+        },
+        "networkSecurityGroups_17ccDocker_nsg_name": {
+            "value": null
+        }
+    }
+}
