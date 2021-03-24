@@ -13,20 +13,16 @@
 ## Command runing test
 After Jmeter and test script ready move to Jmeter bin directory to run these comand for testing 
 ### 1. Insert Test
-Note here
-
 `sudo sh jmeter -n -t ~/TestScript/Test/TestInsert.jmx -l ~/TestScript/result/VM_Insert.csv`
 ### 2. Select Test
-Note here
-
 `sudo sh jmeter -n -t ~/TestScript/Test/TestSelect.jmx -l ~/TestScript/result/VM_Select.csv`
 ### 3. Update Test
-Note: Before runing update test you need to modify value in database on table `groups` field `verified_email` from 0 to 1 this will alow user login whithout need to verified email manualy
+Note: Before runing update test you need to modify value in database on table `groups` field `verified_email` from 0 to 1 this will alow user login whithout need to verified email manualy and backup username field to `group_username.csv`.
 
 `sudo sh jmeter -n -t ~/TestScript/Test/TestUpdate.jmx -l ~/TestScript/result/VM_Update.csv`
 
 ### 4. Delete Test
-Note: Before runing delete test you need modify data on 
+Note: Before runing delete test you need modify data in database on table `participants` field `group_id` and `captain`. field `group_id` shoud be change to group id from main test user, field `captain` will be set to 0. backup id to file `participants_id.csv`.
 
 `sudo sh jmeter -n -t ~/TestScript/Test/TestDelete.jmx -l ~/TestScript/result/VM_Delete.csv`
 
