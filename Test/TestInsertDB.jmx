@@ -11,15 +11,15 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration PEWPEWSERVER001v3" enabled="true">
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration DB Server" enabled="true">
         <boolProp name="autocommit">true</boolProp>
         <stringProp name="checkQuery"></stringProp>
         <stringProp name="connectionAge">5000</stringProp>
-        <stringProp name="dataSource">PEWPEWSERVER001v3</stringProp>
-        <stringProp name="dbUrl">jdbc:mysql://localhost:2601/itccuday_itcc2018v3</stringProp>
+        <stringProp name="dataSource">SERVER</stringProp>
+        <stringProp name="dbUrl">jdbc:mysql://localhost:3306/db_itcc?autoReconnect=true&amp;useSSL=false</stringProp>
         <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
         <boolProp name="keepAlive">true</boolProp>
-        <stringProp name="password">Impewpewtron12</stringProp>
+        <stringProp name="password">programer123</stringProp>
         <stringProp name="poolMax">10</stringProp>
         <stringProp name="timeout">10000</stringProp>
         <stringProp name="transactionIsolation">TRANSACTION_READ_UNCOMMITTED</stringProp>
@@ -27,68 +27,20 @@
         <stringProp name="username">root</stringProp>
       </JDBCDataSource>
       <hashTree/>
-      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration PEWPEWSERVER001v2" enabled="true">
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration Debug DB" enabled="true">
         <boolProp name="autocommit">true</boolProp>
         <stringProp name="checkQuery"></stringProp>
         <stringProp name="connectionAge">5000</stringProp>
-        <stringProp name="dataSource">PEWPEWSERVER001v2</stringProp>
-        <stringProp name="dbUrl">jdbc:mysql://localhost:2601/itccuday_itcc2018v2</stringProp>
+        <stringProp name="dataSource">DEBUG</stringProp>
+        <stringProp name="dbUrl">jdbc:mysql://localhost:3306/db_itcc?autoReconnect=true&amp;useSSL=false</stringProp>
         <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
         <boolProp name="keepAlive">true</boolProp>
-        <stringProp name="password">Impewpewtron12</stringProp>
+        <stringProp name="password">programer123</stringProp>
         <stringProp name="poolMax">10</stringProp>
         <stringProp name="timeout">10000</stringProp>
         <stringProp name="transactionIsolation">TRANSACTION_READ_UNCOMMITTED</stringProp>
         <stringProp name="trimInterval">60000</stringProp>
         <stringProp name="username">root</stringProp>
-      </JDBCDataSource>
-      <hashTree/>
-      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration LOCALHOST" enabled="false">
-        <boolProp name="autocommit">true</boolProp>
-        <stringProp name="checkQuery"></stringProp>
-        <stringProp name="connectionAge">5000</stringProp>
-        <stringProp name="dataSource">LOCALHOST</stringProp>
-        <stringProp name="dbUrl">jdbc:mysql://localhost:3306/itccuday_itcc2018</stringProp>
-        <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
-        <boolProp name="keepAlive">true</boolProp>
-        <stringProp name="password"></stringProp>
-        <stringProp name="poolMax">10</stringProp>
-        <stringProp name="timeout">10000</stringProp>
-        <stringProp name="transactionIsolation">TRANSACTION_READ_COMMITTED</stringProp>
-        <stringProp name="trimInterval">60000</stringProp>
-        <stringProp name="username">root</stringProp>
-      </JDBCDataSource>
-      <hashTree/>
-      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration LOCALSERVER" enabled="false">
-        <boolProp name="autocommit">true</boolProp>
-        <stringProp name="checkQuery"></stringProp>
-        <stringProp name="connectionAge">5000</stringProp>
-        <stringProp name="dataSource">LOCALSERVER</stringProp>
-        <stringProp name="dbUrl">jdbc:mysql://192.168.1.3:3306/itccuday_itcc2018</stringProp>
-        <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
-        <boolProp name="keepAlive">true</boolProp>
-        <stringProp name="password">pewpewtron</stringProp>
-        <stringProp name="poolMax">10</stringProp>
-        <stringProp name="timeout">10000</stringProp>
-        <stringProp name="transactionIsolation">TRANSACTION_READ_UNCOMMITTED</stringProp>
-        <stringProp name="trimInterval">60000</stringProp>
-        <stringProp name="username">pewpewtron</stringProp>
-      </JDBCDataSource>
-      <hashTree/>
-      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration LOCALSERVERv2" enabled="false">
-        <boolProp name="autocommit">true</boolProp>
-        <stringProp name="checkQuery"></stringProp>
-        <stringProp name="connectionAge">5000</stringProp>
-        <stringProp name="dataSource">LOCALSERVERV2</stringProp>
-        <stringProp name="dbUrl">jdbc:mysql://192.168.1.3:3306/itccuday_itcc2018v2</stringProp>
-        <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
-        <boolProp name="keepAlive">true</boolProp>
-        <stringProp name="password">pewpewtron</stringProp>
-        <stringProp name="poolMax">10</stringProp>
-        <stringProp name="timeout">10000</stringProp>
-        <stringProp name="transactionIsolation">TRANSACTION_READ_UNCOMMITTED</stringProp>
-        <stringProp name="trimInterval">60000</stringProp>
-        <stringProp name="username">pewpewtron</stringProp>
       </JDBCDataSource>
       <hashTree/>
       <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="USERNAME Variable" enabled="true">
@@ -129,24 +81,21 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="Stepping Thread Group PEWPEWSERVER002v2 (SINGLE DATABASE)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group 500" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">2000</stringProp>
-        <stringProp name="Threads initial delay">0</stringProp>
-        <stringProp name="Start users count">500</stringProp>
-        <stringProp name="Start users count burst">0</stringProp>
-        <stringProp name="Start users period">30</stringProp>
-        <stringProp name="Stop users count"></stringProp>
-        <stringProp name="Stop users period">30</stringProp>
-        <stringProp name="flighttime">240</stringProp>
-        <stringProp name="rampUp"></stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-      </kg.apc.jmeter.threads.SteppingThreadGroup>
+        <stringProp name="ThreadGroup.num_threads">500</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">300</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="JDBC INSERT Test" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="DB INSERT Test" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
@@ -164,7 +113,7 @@ public byte[] crypt_raw(byte[] PASS${USERNAME},
           </BeanShellPreProcessor>
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="INSERT groups" enabled="true">
-            <stringProp name="dataSource">PEWPEWSERVER001v2</stringProp>
+            <stringProp name="dataSource">SERVER</stringProp>
             <stringProp name="query">INSERT INTO groups (
                     group_name,
                     institution,
@@ -195,181 +144,7 @@ VALUES (
           </JDBCSampler>
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="INSERT participants" enabled="true">
-            <stringProp name="dataSource">PEWPEWSERVER001v2</stringProp>
-            <stringProp name="query">INSERT INTO participants (
-                          captain,
-                          group_id,
-                          full_name,
-                          birthdate,
-                          email,
-                          contact,
-                          vegetarian,
-                          buy_shirt,
-                          size
-                          )
-     VALUES (
-             1 ,
-             LAST_INSERT_ID(),
-             &apos;TEST ${USERNAME}&apos;,
-             &apos;${__RandomDate(,,2025-01-01,,)}&apos;,
-             &apos;${USERNAME}@mail.com&apos;,
-             08${__RandomString(10,1234567890)},
-             ${__RandomString(1,01)},
-             0,
-             null);</stringProp>
-            <stringProp name="queryArguments"></stringProp>
-            <stringProp name="queryArgumentsTypes"></stringProp>
-            <stringProp name="queryTimeout"></stringProp>
-            <stringProp name="queryType">Update Statement</stringProp>
-            <stringProp name="resultSetHandler">Count Records</stringProp>
-            <stringProp name="resultVariable"></stringProp>
-            <stringProp name="variableNames"></stringProp>
-          </JDBCSampler>
-          <hashTree/>
-        </hashTree>
-      </hashTree>
-      <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="Stepping Thread Group PEWPEWSERVER002V2 (WEB)" enabled="false">
-        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">1000</stringProp>
-        <stringProp name="Threads initial delay">0</stringProp>
-        <stringProp name="Start users count">250</stringProp>
-        <stringProp name="Start users count burst">0</stringProp>
-        <stringProp name="Start users period">30</stringProp>
-        <stringProp name="Stop users count"></stringProp>
-        <stringProp name="Stop users period">30</stringProp>
-        <stringProp name="flighttime">240</stringProp>
-        <stringProp name="rampUp"></stringProp>
-        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
-          <boolProp name="LoopController.continue_forever">false</boolProp>
-          <intProp name="LoopController.loops">-1</intProp>
-        </elementProp>
-      </kg.apc.jmeter.threads.SteppingThreadGroup>
-      <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="JDBC INSERT Test WEB" enabled="true">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">true</boolProp>
-        </TransactionController>
-        <hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="INSERT groups WEB" enabled="true">
-            <stringProp name="dataSource">PEWPEWSERVER001v2</stringProp>
-            <stringProp name="query">INSERT INTO groups (
-                    group_name,
-                    institution,
-                    username,
-                    password,
-                    email,
-                    competition_id,
-                    verified,
-                    regist_cost
-                    )
-VALUES (
-        &apos;${USERNAME}&apos;,
-        &apos;${INSTITUTION}&apos;,
-        &apos;${USERNAME}&apos;,
-        &apos;PASS${USERNAME}&apos;,
-        &apos;${USERNAME}@mail.com&apos;,
-        2,
-        0,
-        75000
-        );</stringProp>
-            <stringProp name="queryArguments"></stringProp>
-            <stringProp name="queryArgumentsTypes"></stringProp>
-            <stringProp name="queryTimeout"></stringProp>
-            <stringProp name="queryType">Update Statement</stringProp>
-            <stringProp name="resultSetHandler">Count Records</stringProp>
-            <stringProp name="resultVariable"></stringProp>
-            <stringProp name="variableNames"></stringProp>
-          </JDBCSampler>
-          <hashTree/>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="INSERT participants WEB" enabled="true">
-            <stringProp name="dataSource">PEWPEWSERVER001v2</stringProp>
-            <stringProp name="query">INSERT INTO participants (
-                          captain,
-                          group_id,
-                          full_name,
-                          birthdate,
-                          email,
-                          contact,
-                          vegetarian,
-                          buy_shirt,
-                          size
-                          )
-     VALUES (
-             1 ,
-             LAST_INSERT_ID(),
-             &apos;TEST ${USERNAME}&apos;,
-             &apos;${__RandomDate(,,2025-01-01,,)}&apos;,
-             &apos;${USERNAME}@mail.com&apos;,
-             08${__RandomString(10,1234567890)},
-             ${__RandomString(1,01)},
-             0,
-             null);</stringProp>
-            <stringProp name="queryArguments"></stringProp>
-            <stringProp name="queryArgumentsTypes"></stringProp>
-            <stringProp name="queryTimeout"></stringProp>
-            <stringProp name="queryType">Update Statement</stringProp>
-            <stringProp name="resultSetHandler">Count Records</stringProp>
-            <stringProp name="resultVariable"></stringProp>
-            <stringProp name="variableNames"></stringProp>
-          </JDBCSampler>
-          <hashTree/>
-        </hashTree>
-      </hashTree>
-      <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="Stepping Thread Group PEWPEWSERVER002V3 (PROG)" enabled="false">
-        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">1000</stringProp>
-        <stringProp name="Threads initial delay">0</stringProp>
-        <stringProp name="Start users count">250</stringProp>
-        <stringProp name="Start users count burst">0</stringProp>
-        <stringProp name="Start users period">30</stringProp>
-        <stringProp name="Stop users count"></stringProp>
-        <stringProp name="Stop users period">30</stringProp>
-        <stringProp name="flighttime">240</stringProp>
-        <stringProp name="rampUp"></stringProp>
-        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
-          <boolProp name="LoopController.continue_forever">false</boolProp>
-          <intProp name="LoopController.loops">-1</intProp>
-        </elementProp>
-      </kg.apc.jmeter.threads.SteppingThreadGroup>
-      <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="JDBC INSERT Test PROG" enabled="true">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">true</boolProp>
-        </TransactionController>
-        <hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="INSERT groups PROG" enabled="true">
-            <stringProp name="dataSource">PEWPEWSERVER001v3</stringProp>
-            <stringProp name="query">INSERT INTO groups (
-                    group_name,
-                    institution,
-                    username,
-                    password,
-                    email,
-                    competition_id,
-                    verified,
-                    regist_cost
-                    )
-VALUES (
-        &apos;${USERNAME}&apos;,
-        &apos;${INSTITUTION}&apos;,
-        &apos;${USERNAME}&apos;,
-        &apos;PASS${USERNAME}&apos;,
-        &apos;${USERNAME}@mail.com&apos;,
-        1,
-        0,
-        75000
-        );</stringProp>
-            <stringProp name="queryArguments"></stringProp>
-            <stringProp name="queryArgumentsTypes"></stringProp>
-            <stringProp name="queryTimeout"></stringProp>
-            <stringProp name="queryType">Update Statement</stringProp>
-            <stringProp name="resultSetHandler">Count Records</stringProp>
-            <stringProp name="resultVariable"></stringProp>
-            <stringProp name="variableNames"></stringProp>
-          </JDBCSampler>
-          <hashTree/>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="INSERT participants PROG" enabled="true">
-            <stringProp name="dataSource">PEWPEWSERVER001v3</stringProp>
+            <stringProp name="dataSource">SERVER</stringProp>
             <stringProp name="query">INSERT INTO participants (
                           captain,
                           group_id,
@@ -415,7 +190,7 @@ VALUES (
         <stringProp name="ThreadGroup.delay">0</stringProp>
       </ThreadGroup>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="JDBC INSERT Test" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="DB INSERT Test" enabled="false">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
@@ -432,8 +207,8 @@ public byte[] crypt_raw(byte[] PASS${USERNAME},
                         int[] cdata)</stringProp>
           </BeanShellPreProcessor>
           <hashTree/>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="INSERT groups" enabled="true">
-            <stringProp name="dataSource">LOCALSERVERV2</stringProp>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="INSERT groups" enabled="false">
+            <stringProp name="dataSource">SERVER</stringProp>
             <stringProp name="query">INSERT INTO groups (
                     group_name,
                     institution,
@@ -463,8 +238,8 @@ VALUES (
             <stringProp name="variableNames"></stringProp>
           </JDBCSampler>
           <hashTree/>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="INSERT participants" enabled="true">
-            <stringProp name="dataSource">LOCALSERVERV2</stringProp>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="INSERT participants" enabled="false">
+            <stringProp name="dataSource">SERVER</stringProp>
             <stringProp name="query">INSERT INTO participants (
                           captain,
                           group_id,
@@ -496,7 +271,7 @@ VALUES (
           </JDBCSampler>
           <hashTree/>
         </hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
