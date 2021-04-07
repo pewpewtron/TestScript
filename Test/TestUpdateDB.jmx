@@ -146,7 +146,7 @@ SET full_name = &apos;UPDATE TEST ${USERNAME}&apos;,
         <stringProp name="ThreadGroup.delay">0</stringProp>
       </ThreadGroup>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="JDBC UPDATE Test" enabled="false">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="DB UPDATE Test" enabled="false">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
