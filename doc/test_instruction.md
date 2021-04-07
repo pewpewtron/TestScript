@@ -8,7 +8,7 @@
 - `sudo apt install openjdk-11-jre-headless`
 - `sudo apt install openjdk-11-jdk-headless`
 3. Clone Test Script and JMeter
-4. Modify file server_ip.csv on folder Test if you testing different server
+4. Modify file [server_ip.csv](Test/server_ip.csv) on folder Test if you testing different server
 
 ## Command runing test
 After Jmeter and test script ready move to Jmeter bin directory to run these comand for testing 
