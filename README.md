@@ -19,3 +19,6 @@ In order to run this test script you need to install Java and JMeter
 [Test Instruction Web](doc/test_instruction.md)
 
 [Test Instruction DB](doc/test_instructionDB.md)
+
+# Test Result
+Test result can be found in result folder, recap result can be found in [result](doc/result.md)
