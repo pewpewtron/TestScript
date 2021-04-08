@@ -42,5 +42,3 @@ Generate Report
 `sudo sh jmeter -g ~/TestScript/result/VM_DeleteDB.csv -o ~/TestScript/result/VM_DeleteDB`
 
 "For generating reporting only do on local machine and do not do it on server and push it on test script repo"
-
-"For generating reporting only do on local machine and do not do it on server and push it on test script repo"
