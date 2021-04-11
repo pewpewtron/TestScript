@@ -5,10 +5,15 @@ result/VM_Delete/
 result/Docker_Insert/
 result/Docker_Select/
 result/Docker_Update/
-<<<<<<< HEAD
 result/Docker_Delete/
-=======
 result/Docker_Delete/
 result/VM_InsertV2/
 result/VM_SelectV2/
->>>>>>> main
+result/Docker_DeleteDB.csv
+result/Docker_InsertDB.csv
+result/Docker_SelectDB.csv
+result/Docker_UpdateDB.csv
+result/VM_DeleteDB.csv
+result/VM_InsertDB.csv
+result/VM_SelectDB.csv
+result/VM_UpdateDB.csv
