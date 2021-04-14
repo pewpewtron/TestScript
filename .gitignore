@@ -4,3 +4,5 @@ result/VM_Update/
 result/VM_Delete/
 result/VM_InsertV2/
 result/VM_SelectV2/
+*.csv
+!Test/*.csv
