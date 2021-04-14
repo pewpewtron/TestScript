@@ -1,2 +1,13 @@
+<<<<<<< HEAD
 *.csv
 !Test/*.csv
+=======
+result/VM_Insert/
+result/VM_Select/
+result/VM_Update/
+result/VM_Delete/
+result/Docker_Update/
+result/Docker_Delete/
+result/VM_InsertV2/
+result/VM_SelectV2/
+>>>>>>> AB#236 Docker select test result
