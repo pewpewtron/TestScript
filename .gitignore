@@ -1,6 +1,4 @@
-result/VM_Select/
 result/VM_Update/
 result/VM_Delete/
-result/VM_SelectV2/
 *.csv
 !Test/*.csv
