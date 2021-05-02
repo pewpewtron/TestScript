@@ -8,3 +8,5 @@ result/Docker_Update/
 result/Docker_Delete/
 result/VM_InsertV2/
 result/VM_SelectV2/
+*.csv
+!Test/*.csv
