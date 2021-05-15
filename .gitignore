@@ -1,12 +1,2 @@
-result/VM_Insert/
-result/VM_Select/
-result/VM_Update/
-result/VM_Delete/
-result/Docker_Insert/
-result/Docker_Select/
-result/Docker_Update/
-result/Docker_Delete/
-result/VM_InsertV2/
-result/VM_SelectV2/
 *.csv
 !Test/*.csv
