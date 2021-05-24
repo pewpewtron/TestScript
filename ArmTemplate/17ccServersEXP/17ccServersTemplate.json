@@ -5,12 +5,11 @@
         "VirtualMachineName": {
             "type": "string",
             "allowedValues": [
-                "17ccDocker",
+               "17ccDocker",
                 "17ccVM"
             ],
-            "defaultValue": "",
             "metadata": {
-                "description": "this parameter will be used for VM name"
+                "description": "Server name that will be used"
             }
         },
         "AdminUsername": {
@@ -23,7 +22,7 @@
         "AdminPassword": {
             "type": "securestring",
             "metadata": {
-                "description": "password for vm"
+                "description": "password for VM"
             }
         }
     },
@@ -175,14 +174,14 @@
                 "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('VirtualMachineName'), 'networkInterfaces'))]"
             ],
             "tags": {
-                "displayName": "ubuntuVM1"
+                "displayName": "[parameters('VirtualMachineName')]"
             },
             "properties": {
                 "hardwareProfile": {
                     "vmSize": "Standard_D2s_v3"
                 },
                 "osProfile": {
-                    "computerName": "ubuntuVM1",
+                    "computerName": "[parameters('VirtualMachineName')]",
                     "adminUsername": "[parameters('AdminUsername')]",
                     "adminPassword": "[parameters('AdminPassword')]"
                 },
