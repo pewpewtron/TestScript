@@ -9,11 +9,11 @@
     },
     "resources": [
     {
-        "name": "[concat(resourceGroup().name, 'Storage')]",
+        "name": "[resourceGroup().name]",
         "type": "Microsoft.Storage/storageAccounts",
         "apiVersion": "2019-06-01",
         "tags": {
-            "displayName": "[concat(resourceGroup().name, 'Storage')]"
+            "displayName": "[resourceGroup().name]"
         },
         "location": "[resourceGroup().location]",
         "kind": "StorageV2",
