@@ -3,7 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "functions": [],
-    "variables": {},
+    "variables": {
+        "17ccDockerTemplate": "https://raw.githubusercontent.com/pewpewtron/TestScript/ARMtemplate/deploy/17ccServers/17ccDocker.json",
+        "17ccVMTemplate": "https://raw.githubusercontent.com/pewpewtron/TestScript/ARMtemplate/deploy/17ccServers/17ccVM.json"
+    },
     "resources": [
     {
         "name": "[concat(resourceGroup().name, 'Storage')]",
@@ -90,6 +93,34 @@
                 }
             }
         ]
+    }
+},
+{
+    "name": "17ccDocker",
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2020-10-01",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "[variables('17ccDockerTemplate')]",
+            "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+        }
+    }
+},
+{
+    "name": "17ccVM",
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2020-10-01",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "[variables('17ccVMTemplate')]",
+            "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+        }
     }
 }
     ],
