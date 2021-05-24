@@ -99,6 +99,11 @@
     "name": "17ccDocker",
     "type": "Microsoft.Resources/deployments",
     "apiVersion": "2020-10-01",
+    "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', resourceGroup().name)]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(resourceGroup().name, 'NSG'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', concat(resourceGroup().name, 'vNET'))]"
+    ],
     "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -122,6 +127,11 @@
     "name": "linkedDeployment1",
     "type": "Microsoft.Resources/deployments",
     "apiVersion": "2020-10-01",
+    "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', resourceGroup().name)]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(resourceGroup().name, 'NSG'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', concat(resourceGroup().name, 'vNET'))]"
+    ],
     "properties": {
         "mode": "Incremental",
         "templateLink": {
