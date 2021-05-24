@@ -9,7 +9,7 @@
     },
     "resources": [
     {
-        "name": "[resourceGroup().name]",
+        "name": "[toLower(resourceGroup().name)]",
         "type": "Microsoft.Storage/storageAccounts",
         "apiVersion": "2019-06-01",
         "tags": {

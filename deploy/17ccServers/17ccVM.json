@@ -68,6 +68,7 @@
                         "name": "ipConfig1-Host",
                         "properties": {
                             "privateIPAllocationMethod": "Dynamic",
+                            "primary": true,
                             "publicIPAddress": {
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('ServerName'), 'PublicIP1-Host'))]"
                             },
@@ -80,6 +81,7 @@
                         "name": "ipConfig1-Guest",
                         "properties": {
                             "privateIPAllocationMethod": "Dynamic",
+                            "primary": false,
                             "publicIPAddress": {
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('ServerName'), 'PublicIP2-Guest'))]"
                             },
