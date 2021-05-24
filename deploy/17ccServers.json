@@ -23,7 +23,7 @@
         }
     },
   {
-      "name": "[concat(resourceGroup().name, 'NSG')]",
+      "name": "[concat(resourceGroup().name, '-NSG')]",
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2019-11-01",
       "location": "[resourceGroup().location]",
@@ -72,12 +72,12 @@
       }
   },
 {
-    "name": "[concat(resourceGroup().name, 'vNET')]",
+    "name": "[concat(resourceGroup().name, '-vNET')]",
     "type": "Microsoft.Network/virtualNetworks",
     "apiVersion": "2019-11-01",
     "location": "[resourceGroup().location]",
     "tags": {
-        "displayName": "[concat(resourceGroup().name, 'vNET')]"
+        "displayName": "[concat(resourceGroup().name, '-vNET')]"
     },
     "properties": {
         "addressSpace": {
@@ -101,8 +101,8 @@
     "apiVersion": "2020-10-01",
     "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', resourceGroup().name)]",
-        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(resourceGroup().name, 'NSG'))]",
-        "[resourceId('Microsoft.Network/virtualNetworks', concat(resourceGroup().name, 'vNET'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(resourceGroup().name, '-NSG'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', concat(resourceGroup().name, '-vNET'))]"
     ],
     "properties": {
         "mode": "Incremental",
@@ -129,8 +129,8 @@
     "apiVersion": "2020-10-01",
     "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', resourceGroup().name)]",
-        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(resourceGroup().name, 'NSG'))]",
-        "[resourceId('Microsoft.Network/virtualNetworks', concat(resourceGroup().name, 'vNET'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(resourceGroup().name, '-NSG'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', concat(resourceGroup().name, '-vNET'))]"
     ],
     "properties": {
         "mode": "Incremental",

@@ -59,7 +59,7 @@
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('ServerName'), 'PublicIP'))]"
                             },
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(resourceGroup().name, 'vNET'), concat(resourceGroup().name, 'subnet-1'))]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(resourceGroup().name, '-vNET'), concat(resourceGroup().name, 'subnet-1'))]"
                             }
                         }
                     }
