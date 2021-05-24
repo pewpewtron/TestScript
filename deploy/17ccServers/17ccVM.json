@@ -125,10 +125,7 @@
                         "name": "[concat(parameters('ServerName'), 'OsDisk_1')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
-                        "writeAcceleratorEnabled": false,
-                        "managedDisk": {
-                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('ServerName'), 'OsDisk_1'))]"
-                        }
+                        "writeAcceleratorEnabled": false
                     },
                     "dataDisks": [
                         {
@@ -137,9 +134,6 @@
                             "createOption": "Attach",
                             "caching": "ReadOnly",
                             "writeAcceleratorEnabled": false,
-                            "managedDisk": {
-                                "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('ServerName'), 'DataDisk_1'))]"
-                            },
                             "toBeDetached": false
                         }
                     ]

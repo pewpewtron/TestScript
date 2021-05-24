@@ -98,10 +98,7 @@
                         "name": "[concat(parameters('ServerName'), 'OsDisk_1')]",
                         "caching": "ReadWrite",
                         "createOption": "FromImage",
-                        "writeAcceleratorEnabled": false,
-                         "managedDisk": {
-                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('ServerName'), 'OsDisk_1'))]"
-                        }
+                        "writeAcceleratorEnabled": false
                     }
                 },
                 "networkProfile": {
