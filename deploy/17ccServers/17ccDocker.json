@@ -91,13 +91,18 @@
                     "imageReference": {
                         "publisher": "Canonical",
                         "offer": "UbuntuServer",
-                        "sku": "16.04-LTS",
+                        "sku": "18.04-LTS",
                         "version": "latest"
                     },
                     "osDisk": {
-                        "name": "[concat(parameters('ServerName'),'osDisk')]",
+                        "osType": "Linux",
+                        "name": "[concat(parameters('ServerName'), 'OsDisk_1')]",
                         "caching": "ReadWrite",
-                        "createOption": "FromImage"
+                        "createOption": "FromImage",
+                        "writeAcceleratorEnabled": false,
+                         "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('ServerName'), 'OsDisk_1'))]"
+                        }
                     }
                 },
                 "networkProfile": {
@@ -110,7 +115,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', toLower(concat(resourceGroup().name, 'Storage')))).primaryEndpoints.blob]"
+                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', concat(resourceGroup().name), 'Storage').primaryEndpoints.blob)]"
                     }
                 }
             }

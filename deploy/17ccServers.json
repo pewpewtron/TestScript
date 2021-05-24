@@ -94,34 +94,6 @@
             }
         ]
     }
-},
-{
-    "name": "17ccDocker",
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
-    "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-            "uri": "[variables('17ccDockerTemplate')]",
-            "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-        }
-    }
-},
-{
-    "name": "17ccVM",
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
-    "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-            "uri": "[variables('17ccVMTemplate')]",
-            "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-        }
-    }
 }
     ],
     "outputs": {}
