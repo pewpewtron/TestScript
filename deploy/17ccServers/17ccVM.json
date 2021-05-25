@@ -125,7 +125,8 @@
                         "name": "[concat(parameters('ServerName'), 'OsDisk_1')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
-                        "writeAcceleratorEnabled": false
+                        "writeAcceleratorEnabled": false,
+                        "diskSizeGB": 30
                     },
                     "dataDisks": [
                         {
@@ -134,7 +135,8 @@
                             "createOption": "Attach",
                             "caching": "ReadOnly",
                             "writeAcceleratorEnabled": false,
-                            "toBeDetached": false
+                            "toBeDetached": false,
+                            "diskSizeGB": 30
                         }
                     ]
                 },

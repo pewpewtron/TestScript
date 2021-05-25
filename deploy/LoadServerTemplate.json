@@ -179,7 +179,8 @@
                     "osDisk": {
                         "name": "[concat(parameters('ServerName'), '_OsDisk_1')]",
                         "caching": "ReadWrite",
-                        "createOption": "FromImage"
+                        "createOption": "FromImage",
+                        "diskSizeGB": 30
                     }
                 },
                 "networkProfile": {
