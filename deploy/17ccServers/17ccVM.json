@@ -152,7 +152,7 @@
                             "name": "[concat(parameters('ServerName'), 'DataDisk_1')]",
                             "createOption": "Attach",
                             "managedDisk": {
-                                "id": "[resourceId('Microsoft.Compute/disk', concat(parameters('ServerName'), 'DataDisk_1'))]"
+                                "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('ServerName'), 'DataDisk_1'))]"
                             }
                         }
                     ]
