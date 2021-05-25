@@ -1,7 +1,21 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "AdminUsername": {
+            "type": "string",
+            "defaultValue" : "programer",
+            "metadata": {
+                "description": "admin username for server"
+            }
+        },
+        "AdminPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "admin password for server"
+            }
+        }
+    },
     "functions": [],
     "variables": {
         "17ccDockerTemplate": "https://raw.githubusercontent.com/pewpewtron/TestScript/ARMtemplate/deploy/17ccServers/17ccDocker.json",
@@ -111,15 +125,9 @@
             "contentVersion": "1.0.0.0"
         },
         "parameters": {
-            "ServerName": {
-                "value": "17ccDocker"
-            },
-            "AdminUsername": {
-                "value": "programer"
-            },
-            "AdminPassword": {
-                "value": ""
-            }
+            "ServerName": {"value": "17ccDocker"},
+            "AdminUsername": {"value": "[parameters('AdminUsername')]"},
+            "AdminPassword": {"value": "[parameters('AdminPassword')]"}
         }
     }
 },
@@ -139,15 +147,9 @@
             "contentVersion": "1.0.0.0"
         },
         "parameters": {
-            "ServerName": {
-                "value": "17ccVM"
-            },
-            "AdminUsername": {
-                "value": "programer"
-            },
-            "AdminPassword": {
-                "value": ""
-            }
+            "ServerName": {"value": "17ccVM"},
+            "AdminUsername": {"value": "[parameters('AdminUsername')]"},
+            "AdminPassword": {"value": "[parameters('AdminPassword')]"}
         }
     }
 }
