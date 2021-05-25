@@ -180,7 +180,10 @@
                         "name": "[concat(parameters('ServerName'), '_OsDisk_1')]",
                         "caching": "ReadWrite",
                         "createOption": "FromImage",
-                        "diskSizeGB": 30
+                        "diskSizeGB": 30,
+                        "managedDisk": {
+                            "storageAccountType": "StandardSSD_LRS"
+                        }
                     }
                 },
                 "networkProfile": {
