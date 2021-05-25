@@ -94,6 +94,21 @@
             }
         },
         {
+            "type": "Microsoft.Compute/disks",
+            "apiVersion": "2020-09-30",
+            "name": "[concat(parameters('ServerName'), 'DataDisk_1')]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "StandardSSD_LRS"
+            },
+            "properties": {
+                "creationData": {
+                    "createOption": "Empty"
+                },
+                "diskSizeGB": 30
+            }
+        },
+        {
             "name": "[parameters('ServerName')]",
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2019-07-01",
@@ -128,7 +143,6 @@
                         "writeAcceleratorEnabled": false,
                         "diskSizeGB": 30,
                         "managedDisk": {
-                            "id": "[resourceId('Microsoft.Compute/disk', concat(parameters('ServerName'), 'OsDisk_1'))]",
                             "storageAccountType": "StandardSSD_LRS"
                         }
                     },
@@ -137,13 +151,8 @@
                             "lun": 1,
                             "name": "[concat(parameters('ServerName'), 'DataDisk_1')]",
                             "createOption": "Attach",
-                            "caching": "ReadOnly",
-                            "writeAcceleratorEnabled": false,
-                            "toBeDetached": false,
-                            "diskSizeGB": 30,
                             "managedDisk": {
-                                "id": "[resourceId('Microsoft.Compute/disk', concat(parameters('ServerName'), 'DataDisk_1'))]",
-                                "storageAccountType": "StandardSSD_LRS"
+                                "id": "[resourceId('Microsoft.Compute/disk', concat(parameters('ServerName'), 'DataDisk_1'))]"
                             }
                         }
                     ]

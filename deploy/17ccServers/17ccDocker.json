@@ -101,7 +101,6 @@
                         "writeAcceleratorEnabled": false,
                         "diskSizeGB" : 30,
                         "managedDisk": {
-                            "id": "[resourceId('Microsoft.Compute/disk', concat(parameters('ServerName'), 'OsDisk_1'))]",
                             "storageAccountType": "StandardSSD_LRS"
                         }
                     }
