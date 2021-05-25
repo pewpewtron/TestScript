@@ -1,0 +1,158 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "AdminUsername": {
+            "type": "string",
+            "defaultValue" : "programer",
+            "metadata": {
+                "description": "admin username for server"
+            }
+        },
+        "AdminPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "admin password for server"
+            }
+        }
+    },
+    "functions": [],
+    "variables": {
+        "17ccDockerTemplate": "https://raw.githubusercontent.com/pewpewtron/TestScript/ARMtemplate/deploy/17ccServers/17ccDocker.json",
+        "17ccVMTemplate": "https://raw.githubusercontent.com/pewpewtron/TestScript/ARMtemplate/deploy/17ccServers/17ccVM.json"
+    },
+    "resources": [
+    {
+        "name": "[toLower(resourceGroup().name)]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-06-01",
+        "tags": {
+            "displayName": "[resourceGroup().name]"
+        },
+        "location": "[resourceGroup().location]",
+        "kind": "StorageV2",
+        "sku": {
+            "name": "Standard_LRS",
+            "tier": "Standard"
+        }
+    },
+  {
+      "name": "[concat(resourceGroup().name, '-NSG')]",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2019-11-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+          "securityRules": [
+                    {
+                        "name": "Rule1-AllowSSH",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 300,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name" : "Rule2-AllowHTTP",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "80",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name" : "Rule3-AllowHTTPs",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 200,
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+      }
+  },
+{
+    "name": "[concat(resourceGroup().name, '-vNET')]",
+    "type": "Microsoft.Network/virtualNetworks",
+    "apiVersion": "2019-11-01",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "displayName": "[concat(resourceGroup().name, '-vNET')]"
+    },
+    "properties": {
+        "addressSpace": {
+            "addressPrefixes": [
+                "10.0.0.0/16"
+            ]
+        },
+        "subnets": [
+            {
+                "name": "[concat(resourceGroup().name, 'subnet-1')]",
+                "properties": {
+                    "addressPrefix": "10.0.0.0/24"
+                }
+            }
+        ]
+    }
+},
+{
+    "name": "17ccDocker",
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2020-10-01",
+    "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', resourceGroup().name)]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(resourceGroup().name, '-NSG'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', concat(resourceGroup().name, '-vNET'))]"
+    ],
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "[variables('17ccDockerTemplate')]",
+            "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+            "ServerName": {"value": "17ccDocker"},
+            "AdminUsername": {"value": "[parameters('AdminUsername')]"},
+            "AdminPassword": {"value": "[parameters('AdminPassword')]"}
+        }
+    }
+},
+{
+    "name": "17ccVM",
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2020-10-01",
+    "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', resourceGroup().name)]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(resourceGroup().name, '-NSG'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', concat(resourceGroup().name, '-vNET'))]"
+    ],
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "[variables('17ccVMTemplate')]",
+            "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+            "ServerName": {"value": "17ccVM"},
+            "AdminUsername": {"value": "[parameters('AdminUsername')]"},
+            "AdminPassword": {"value": "[parameters('AdminPassword')]"}
+        }
+    }
+}
+    ],
+    "outputs": {}
+}
