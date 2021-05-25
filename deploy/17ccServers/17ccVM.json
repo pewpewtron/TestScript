@@ -126,7 +126,11 @@
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "writeAcceleratorEnabled": false,
-                        "diskSizeGB": 30
+                        "diskSizeGB": 30,
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disk', concat(parameters('ServerName'), 'OsDisk_1'))]",
+                            "storageAccountType": "StandardSSD_LRS"
+                        }
                     },
                     "dataDisks": [
                         {
@@ -136,7 +140,11 @@
                             "caching": "ReadOnly",
                             "writeAcceleratorEnabled": false,
                             "toBeDetached": false,
-                            "diskSizeGB": 30
+                            "diskSizeGB": 30,
+                            "managedDisk": {
+                                "id": "[resourceId('Microsoft.Compute/disk', concat(parameters('ServerName'), 'DataDisk_1'))]",
+                                "storageAccountType": "StandardSSD_LRS"
+                            }
                         }
                     ]
                 },
