@@ -52,3 +52,11 @@ Load server work as JMeter runner and where test script will be run, the server 
 ```
 
 # Deployment
+You can use various method available for deploying arm template such as using portal, CLI, PowerShell, Rest API, Github, Cloud Shell. below is documentation for deploying arm template
+
+* [Deploying via Azure Portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-portal)
+* [Deploying via CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli)
+* [Deploying via PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-powershell)
+* [Deploying via Rest API](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-rest)
+* [Deploying via GitHub](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button)
+* [Deloying via Cloud Shell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cloud-shell)
