@@ -18,8 +18,8 @@
     },
     "functions": [],
     "variables": {
-        "17ccDockerTemplate": "https://raw.githubusercontent.com/pewpewtron/TestScript/docs/deploy/17ccServers/17ccDocker.json",
-        "17ccVMTemplate": "https://raw.githubusercontent.com/pewpewtron/TestScript/docs/deploy/17ccServers/17ccVM.json"
+        "17ccDockerTemplate": "https://raw.githubusercontent.com/pewpewtron/TestScript/docs/template/17ccServers/17ccDocker.json",
+        "17ccVMTemplate": "https://raw.githubusercontent.com/pewpewtron/TestScript/docs/template/17ccServers/17ccVM.json"
     },
     "resources": [
     {
