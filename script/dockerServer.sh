@@ -27,3 +27,7 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-c
 #set permissions
 echo add permissions
 sudo chmod +x /usr/local/bin/docker-compose
+
+# Check Docker and compose version
+docker -v
+docker-compose --version
