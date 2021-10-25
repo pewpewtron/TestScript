@@ -1,5 +1,11 @@
 #!/bin/sh
 
+#Before runing the file make sure set its permission 
+#chmod +x script/dockerServer.sh
+
+#run the script using 
+#sudo script/dockerServer.sh
+
 #Update Package
 echo Update Pakcage
 apt-get update
