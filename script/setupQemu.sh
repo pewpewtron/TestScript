@@ -8,7 +8,7 @@
 #Install Qemu
 echo Install Qemu
 apt-get update
-apt-get install -y qemu qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+apt-get install -y qemu qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst
 service libvirtd start
 update-rc.d libvirtd enable
 
