@@ -7,6 +7,10 @@
 
 #Install PHP 7.4
 echo Install PHP 7.4
+apt-get update
+apt -y install software-properties-common
+add-apt-repository ppa:ondrej/php
+apt-get update
 apt-get install php7.4-fpm php7.4-xml php7.4-mysql php7.4-mbstring php7.4-zip unzip -y
 
 #install NGINX
