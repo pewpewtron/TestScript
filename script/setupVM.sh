@@ -21,3 +21,10 @@ apt-get update
 apt-cache policy mysql-server 
 apt install -f mysql-client=5.7.33-1ubuntu18.04 mysql-community server=5.7.33-1ubuntu18.04 mysql-server=5.7.33-1ubuntu18.04
 apt-get install mysql-server -y
+
+#Install Composer
+echo Install Composer
+apt-get update
+curl -sS https://getcomposer.org/installer | php 
+sudo mv composer.phar /usr/local/bin/composer
+composer
